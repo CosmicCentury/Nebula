@@ -1,0 +1,29 @@
+version: "3"
+
+services:
+  client:
+    restart: always
+    container_name: client
+    build: ./
+    volumes:
+      - shared:/app
+      - nginxshared:/usr/share/nginx/html
+
+  nginx:
+    restart: always
+    build: ./nginx
+    container_name: nginx
+    environment:
+      - TZ=Asia/Singapore
+    depends_on:
+      - client
+    volumes:
+      - shared:/app
+      - nginxshared:/usr/share/nginx/html
+    ports:
+      - 80:80
+      - 9112:9112
+
+volumes:
+  shared:
+  nginxshared:

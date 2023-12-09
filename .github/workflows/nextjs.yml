@@ -37,3 +37,4 @@ jobs:
           # Replace 'yourusername/yourrepository' with your DockerHub username and repository name
           push: true
           tags: raphaelvguy/nebula:latest
+          platforms: linux/amd64, linux/arm64

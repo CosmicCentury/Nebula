@@ -4,7 +4,7 @@ import Image from "next/image";
 const Home = () => {
   return (
     <Box>
-      <div>test</div>
+      <div>testing 12 </div>
     </Box>
   );
 };

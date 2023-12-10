@@ -53,5 +53,5 @@ jobs:
           key: ${{ secrets.SSH_KEY }}
           script: |
             exec bash \-l
-            /usr/bin/docker-compose -f /home/pi/docker-compose-nebula.yml pull
-            /usr/bin/docker-compose -f /home/pi/docker-compose-nebula.yml up -d
+            /home/pi/.local/bin/docker-compose -f /home/pi/docker-compose-nebula.yml pull
+            /home/pi/.local/bin/docker-compose -f /home/pi/docker-compose-nebula.yml up -d

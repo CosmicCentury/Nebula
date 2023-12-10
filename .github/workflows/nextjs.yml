@@ -52,6 +52,5 @@ jobs:
           username: pi
           key: ${{ secrets.SSH_KEY }}
           script: |
-            cd /home/pi
-            docker-compose -f docker-compose-nebula.yml pull
-            docker-compose -f docker-compose-nebula.yml up -d
+            /usr/bin/docker-compose -f /home/pi/docker-compose-nebula.yml pull
+            /usr/bin/docker-compose -f /home/pi/docker-compose-nebula.yml up -d

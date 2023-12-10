@@ -31,7 +31,7 @@ export default function RootLayout({
   // const [open, setOpen] = React.useState<boolean>(true);
   return (
     <html lang="en" suppressHydrationWarning={true}>
-      <title>Raphael C</title>
+      <title>Nebula</title>
       <head>
         <link rel="icon" href="/icon2.ico" sizes="any" />
       </head>

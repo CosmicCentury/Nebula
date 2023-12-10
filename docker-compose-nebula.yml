@@ -1,0 +1,9 @@
+version: "3"
+
+services:
+  nebula:
+    image: raphaelvguy/nebula:latest
+    ports:
+      - "80:80"
+    environment:
+      - TZ=Asia/Singapore

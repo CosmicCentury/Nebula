@@ -38,3 +38,20 @@ jobs:
           push: true
           tags: raphaelvguy/nebula:latest
           platforms: linux/amd64, linux/arm64
+  deploy:
+    runs-on: self-hosted
+    needs: build
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Deploy to Raspberry Pi
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.PI_HOST }}
+          username: pi
+          key: ${{ secrets.SSH_KEY }}
+          script: |
+            cd /home/pi
+            docker-compose -f docker-compose-nebula.yml pull
+            docker-compose -f docker-compose-nebula.yml up -d

@@ -18,7 +18,7 @@ RUN rm /etc/nginx/conf.d/default.conf
 
 COPY ./nginx/nginx.conf /etc/nginx/conf.d/nginx.conf
 
-COPY --from=builder /source/out /usr/share/nginx/html
+COPY --from=builder /source/build /usr/share/nginx/html
 
 EXPOSE 80 443
 

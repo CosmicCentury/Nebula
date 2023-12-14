@@ -1,0 +1,26 @@
+[
+  {
+    "name": "Dashboard",
+    "link": "/main/dashboard",
+    "icon": "DashboardIcon",
+    "divider": false
+  },
+  {
+    "name": "Schedule",
+    "link": "/main/schedule",
+    "icon": "EventNoteIcon",
+    "divider": false
+  },
+  {
+    "name": "Markdown Editor",
+    "link": "/main/markdown",
+    "icon": "MarkdownEditorIcon",
+    "divider": true
+  },
+  {
+    "name": "Settings",
+    "link": "/main/settings",
+    "icon": "SettingsApplicationsIcon",
+    "divider": false
+  }
+]

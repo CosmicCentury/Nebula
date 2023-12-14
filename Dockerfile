@@ -6,7 +6,7 @@ COPY package.json /source
 
 COPY package-lock.json /source
 
-RUN npm ci
+RUN npm ci --legacy-peer-deps
 
 COPY . /source
 

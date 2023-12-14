@@ -1,5 +1,9 @@
 {
-  "presets": ["@babel/preset-env", "@babel/preset-react","@babel/preset-typescript"],
+  "presets": [
+    "@babel/preset-env",
+    "@babel/preset-react",
+    "@babel/preset-typescript"
+  ],
   "ignore": ["/node_modules/"],
   "plugins": [
     "emotion",
@@ -9,13 +13,14 @@
         "legacy": true
       }
     ],
-    "@babel/plugin-proposal-class-properties",
     [
       "@babel/plugin-transform-classes",
       {
         "loose": true
       }
     ],
+    "@babel/plugin-transform-class-properties",
+    "@babel/plugin-transform-optional-chaining",
     "@babel/plugin-syntax-dynamic-import",
     "@babel/plugin-transform-spread",
     "@babel/plugin-syntax-async-generators",
@@ -23,7 +28,6 @@
     "@babel/plugin-transform-runtime",
     "@babel/plugin-transform-block-scoped-functions",
     "@babel/plugin-transform-computed-properties",
-    "@babel/plugin-proposal-optional-chaining",
     "@babel/plugin-proposal-export-default-from",
     "@babel/plugin-transform-modules-commonjs"
   ]

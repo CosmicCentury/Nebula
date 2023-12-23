@@ -24,7 +24,7 @@ jobs:
       - name: Login to DockerHub (or your container registry)
         uses: docker/login-action@v1
         with:
-          # You need to set your DockerHub username and access token in the repository secrets
+          # You need to set your DockerHub username and access token in the repository secret
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_ACCESS_TOKEN }}
       - name: Build and push Docker image

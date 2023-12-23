@@ -23,8 +23,8 @@ module.exports = (env) => {
       static: "./build",
       allowedHosts: "all",
       historyApiFallback: true,
-      host: "127.0.0.1",
-      port: "8080",
+      host: "nebula.local",
+      port: 3030,
 
       // proxy: {
       //   "/api": "http://127.0.0.1:6060",

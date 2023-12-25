@@ -12,8 +12,8 @@ permissions:
 jobs:
   # Build job
   build:
-    runs-on: self-hosted
-    environment: pi
+    runs-on:
+      group: star-runner
     steps:
       - name: Checkout
         uses: actions/checkout@v3
@@ -35,8 +35,8 @@ jobs:
           tags: raphaelvguy/nebula:latest
           platforms: linux/amd64, linux/arm64
   deploy:
-    runs-on: self-hosted
-    environment: pi
+    runs-on:
+      group: star-runner
     needs: build
     steps:
       - name: Checkout code

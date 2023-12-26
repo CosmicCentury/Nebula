@@ -42,6 +42,14 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v3
 
+      - name: Set up SSH Agent
+        uses: webfactory/ssh-agent@v0.8.0
+        with:
+          ssh-private-key: ${{ secrets.SSH_KEY }}
+
+      - name: Copy docker-compose file
+        run: scp docker-compose-nebula.yml pi@raspberrypi:~/
+
       - name: Deploy to Raspberry Pi
         uses: appleboy/ssh-action@master
         with:

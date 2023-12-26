@@ -39,7 +39,7 @@ const Dashboard: React.FC = () => {
 
       {/* <QuickAccess ref={ref} /> */}
       {/* <div onClick={scrollTo}>test 4</div> */}
-      <QuickAccessComponent title={"Quick Access: "} />
+      <QuickAccessComponent title={"Quick Access1: "} />
 
       {/* <Test ref={(el) => (ref.current[3] = el!)} /> */}
 

@@ -24,7 +24,7 @@ module.exports = (env) => {
       allowedHosts: "all",
       historyApiFallback: true,
       host: "nebula.local",
-      port: 3030,
+      port: 8080,
 
       // proxy: {
       //   "/api": "http://127.0.0.1:6060",

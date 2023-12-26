@@ -1,25 +1,25 @@
 [
   {
     "name": "Dashboard",
-    "link": "/main/dashboard",
+    "link": "/dashboard",
     "icon": "DashboardIcon",
     "divider": false
   },
   {
     "name": "Schedule",
-    "link": "/main/schedule",
+    "link": "/schedule",
     "icon": "EventNoteIcon",
     "divider": false
   },
   {
     "name": "Markdown Editor",
-    "link": "/main/markdown",
+    "link": "/markdown",
     "icon": "MarkdownEditorIcon",
     "divider": true
   },
   {
     "name": "Settings",
-    "link": "/main/settings",
+    "link": "/settings",
     "icon": "SettingsApplicationsIcon",
     "divider": false
   }

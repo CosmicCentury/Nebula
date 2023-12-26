@@ -47,8 +47,11 @@ jobs:
         with:
           ssh-private-key: ${{ secrets.SSH_KEY }}
 
+      - name: Add SSH Key for Raspberry Pi to Known Hosts
+        run: ssh-keyscan -H 192.168.50.150 >> ~/.ssh/known_hosts
+
       - name: Copy docker-compose file
-        run: scp docker-compose-nebula.yml pi@raspberrypi:~/
+        run: scp docker-compose-nebula.yml pi@192.168.50.150:~/
 
       - name: Deploy to Raspberry Pi
         uses: appleboy/ssh-action@master

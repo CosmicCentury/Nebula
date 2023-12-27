@@ -16,7 +16,7 @@ import SettingsApplicationsIcon from "@mui/icons-material/SettingsApplications";
 import DashboardIcon from "@mui/icons-material/Dashboard";
 import QuestionMarkIcon from "@mui/icons-material/QuestionMark";
 import ArticleIcon from "@mui/icons-material/Article";
-import menuList from "./menu.json";
+import routes from "../../routes";
 
 import {
   Link as RouterLink,
@@ -80,21 +80,6 @@ const Drawer = styled(MuiDrawer, {
   }),
 }));
 
-const ImportIcon = (iconName: string) => {
-  switch (iconName) {
-    case "DashboardIcon":
-      return <DashboardIcon />;
-    case "EventNoteIcon":
-      return <EventNoteIcon />;
-    case "SettingsApplicationsIcon":
-      return <SettingsApplicationsIcon />;
-    case "MarkdownEditorIcon":
-      return <ArticleIcon />;
-    default:
-      return <QuestionMarkIcon />;
-  }
-};
-
 function ListItemLink(props: ListItemLinkProps) {
   const { icon, primary, to, divider = false } = props;
 
@@ -136,13 +121,13 @@ const SideMenu: React.FC<SideMenuProps> = ({ open = false, setOpen }) => {
       </DrawerHeader>
       {/* <Divider /> */}
       <List component="nav">
-        {menuList.map((x, index) => (
+        {routes.map((x, index) => (
           <ListItemLink
             key={index}
             divider={x.divider}
             to={x.link}
             primary={x.name}
-            icon={ImportIcon(x.icon)}
+            icon={React.createElement(x.icon)}
           />
         ))}
       </List>

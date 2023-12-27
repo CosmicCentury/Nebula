@@ -9,6 +9,7 @@ import {
   createBrowserRouter,
   RouterProvider,
   Outlet,
+  useLocation,
 } from "react-router-dom";
 import { DrawerHeader } from "./components/SideMenu";
 
@@ -20,6 +21,7 @@ import FrontPageWrapper from "./components/FrontPage/FrontPageWrapper";
 import CustomRoute from "./components/CustomRoutes";
 import NotFound from "../../components/NotFoundPage";
 import Dashboard from "../dashboard";
+import routes from "./routes";
 
 export const drawerWidth = 240;
 
@@ -38,7 +40,13 @@ export const PageInfomationContext =
     changePageTitle: () => {},
   });
 
-const DefaultContainer = () => {
+const ProtectedRoutes = () => {
+  const location = useLocation();
+  React.useEffect(() => {
+    document.title =
+      routes.find((item) => item.link === location.pathname)?.name ?? "Nebula";
+  }, [location]);
+
   const [open, setOpen] = React.useState<boolean>(true);
 
   const [pageTitle, setPageTitle] = React.useState<string>("");
@@ -72,28 +80,14 @@ const Root: React.FC = () => {
   const router = createBrowserRouter([
     {
       path: "/",
-      element: <DefaultContainer />,
+      element: <ProtectedRoutes />,
       errorElement: <NotFound />,
-      children: [
-        {
-          path: "/dashboard",
-          lazy: async () => ({
-            Component: (await import("../dashboard")).default,
-          }),
-        },
-        {
-          path: "schedule",
-          lazy: async () => ({
-            Component: (await import("../schedule")).default,
-          }),
-        },
-        {
-          path: "settings",
-          lazy: async () => ({
-            Component: (await import("../settings")).default,
-          }),
-        },
-      ],
+      children: routes.map((item) => ({
+        path: item.link,
+        lazy: async () => ({
+          Component: item.component,
+        }),
+      })),
     },
     {
       path: "/login",
@@ -102,7 +96,27 @@ const Root: React.FC = () => {
       }),
     },
   ]);
-  console.log(router);
+
+  // [
+  //   {
+  //     path: "/dashboard",
+  //     lazy: async () => ({
+  //       Component: (await import("../dashboard")).default,
+  //     }),
+  //   },
+  //   {
+  //     path: "schedule",
+  //     lazy: async () => ({
+  //       Component: (await import("../schedule")).default,
+  //     }),
+  //   },
+  //   {
+  //     path: "settings",
+  //     lazy: async () => ({
+  //       Component: (await import("../settings")).default,
+  //     }),
+  //   },
+  // ],
   return (
     <>
       <CssBaseline />
